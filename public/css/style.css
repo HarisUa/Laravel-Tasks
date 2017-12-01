@@ -1,0 +1,16 @@
+.panel-w {
+ 	min-height: 200px;
+ 	max-height: 200px;
+ }
+
+ .panel-body {
+ 	text-overflow: ellipsis;
+ }
+
+ .body-add {
+ 	text-align: center;
+ }
+
+ .panel-heading {
+ 	font-weight: bold;
+ }
