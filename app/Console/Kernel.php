@@ -33,12 +33,14 @@ class Kernel extends ConsoleKernel
         $schedule->call(function() {
             $notes = DB::table('notes')->get();
             foreach ($notes as $note) {
-                $diff = new \DateTime();
-                $diff = $note->deadline;
                 $now = new \DateTime('now');
+                $deadline = new \DateTime($note->deadline);
+                $interval = $now->diff($deadline);
+
                 $fromuser = User::findOrFail($note->user_id)->name;
                 $user = User::findOrFail($note->for_id);
-                if ($now > $diff) {
+
+                if($interval->d == 1) {
                     Mail::send('emails.reminder', ['fromuser' => $fromuser, 'task' => $note], function ($m) use ($user) {
                             $m->from('admin@laravel.vagrant', 'Deadline is coming');
 

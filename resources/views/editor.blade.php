@@ -20,7 +20,6 @@
                 <div class="panel-body">
                     @if(empty($list))
                         Add {{ $type }}
-                        {{ $datetime }}
                     @else
                         Edit {{ $type }}
                     @endif

@@ -23,7 +23,6 @@ class NotesController extends Controller
         $users = User::all();
 
         return view('editor', [
-            'datetime' => new \DateTime('now'),
             'list' => '', 
             'type' => 'Note',
             'users' => $users,
